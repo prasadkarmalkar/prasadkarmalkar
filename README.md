@@ -1,7 +1,6 @@
 - 👋 Hi, I’m @prasadkarmalkar
 - 👀 I’m interested in software development
 - 🌱 I’m currently working as full stack developer
-- 💞️ I’m looking to collaborate on web3 and web development
 - 📫 email on prasadkarmalkar2020@gmail.com
 
 <!---
