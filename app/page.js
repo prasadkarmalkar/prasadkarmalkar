@@ -108,6 +108,7 @@ export default function Home() {
           </p>
         </a>
       </div>
+      <h1>Hello World</h1>
     </main>
   )
 }
