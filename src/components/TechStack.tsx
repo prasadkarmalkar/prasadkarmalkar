@@ -5,7 +5,7 @@ import { VscVscode } from "react-icons/vsc";
 
 function TechStack() {
 	return (
-		<section className='mt-20 h-[calc(100vh-80px)] max-w-screen-lg m-auto'>
+		<section className='mt-20 max-w-screen-lg m-auto'>
 			<h2 className='text-center text-4xl '>Tech Stack & Mastery</h2>
 			<div className='mt-20 grid grid-cols-8 grid-rows-6 gap-10 justify-center'>
 				<div className='relative col-span-5 row-span-4 bg-gray-950 rounded-2xl'>
