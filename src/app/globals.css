@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.recent-project-tech::before {
+    mask-image: radial-gradient(circle 10px at bottom left, transparent 0, transparent 20px, black 21px);
+}
+.recent-project-tech::after {
+    mask-image: radial-gradient(circle 10px at bottom left, transparent 0, transparent 20px, black 21px);
+}
+.recent-project-more-container::before {
+    mask-image: radial-gradient(circle 10px at top left, transparent 0, transparent 20px, black 21px);
+}
+.recent-project-more-container::after {
+    mask-image: radial-gradient(circle 10px at top left, transparent 0, transparent 20px, black 21px);
+}

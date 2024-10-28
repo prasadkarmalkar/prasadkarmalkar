@@ -1,5 +1,6 @@
 import AboutMe from '@/components/AboutMe';
 import Experience from '@/components/Experience';
+import RecentProjects from '@/components/RecentProjects';
 import TechStack from '@/components/TechStack';
 import { FaAngleRight, FaChevronDown } from "react-icons/fa6";
 
@@ -17,6 +18,7 @@ export default function Home() {
 			<TechStack />
 			<Experience />
 			<AboutMe />
+			<RecentProjects />
 		</main>
 	);
 }
