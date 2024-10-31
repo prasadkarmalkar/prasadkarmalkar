@@ -17,7 +17,7 @@ function AboutMe() {
 					<strong>BIOGRAPHY</strong>
 				</h3>
 				<p className='my-4'>
-					<strong>Greetings! I'm Prasad Karmalkar</strong>, a Web
+					<strong>Greetings! I am Prasad Karmalkar</strong>, a Web
 					Engineer armed with a degree in Information Technology,
 					currently working as a Web Engineer at rtCamp.
 				</p>
