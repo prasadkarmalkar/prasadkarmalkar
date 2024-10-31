@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${work_sans.className} antialiased bg-black text-white p-2 min-h-screen`}
+        className={`${work_sans.className} antialiased bg-black text-white min-h-screen`}
       >
         <Header />
         {children}

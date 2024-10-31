@@ -1,4 +1,5 @@
 import React from 'react';
+import GradientText from '../GradientText';
 
 function Experience() {
 	const journeyData = [
@@ -33,16 +34,16 @@ function Experience() {
 	]
 	return (
 		<section className='mt-20 m-auto'>
-			<h2 className='text-center text-4xl'>Journey</h2>
+			<h2 className='text-center text-4xl'>My <strong><GradientText>Journey</GradientText></strong></h2>
 			<div className='mt-20 max-w-4xl m-auto flex flex-col'>
 				{
 					journeyData.map((item, index) => (
-						<div className={`${index%2 === 0 ? 'mr-auto after:-right-1.5' : 'ml-auto' } py-10 af w-1/2 relative after:absolute after:content-[''] after:top-0 after:h-full after:w-1.5 after:bg-white`} key={index}>
+						<div className={`${index%2 === 0 ? 'md:mr-auto md:m-0 md:after:-right-1.5 md:after:m-0 md:after:left-auto' : 'md:ml-auto md:m-0 md:after:m-0 md:after:right-auto' } after:right-0 after:left-0 after:m-auto after:-z-10 m-auto py-10  md:w-1/2 relative after:absolute after:content-[''] after:top-0 after:h-full after:w-1.5 after:bg-white`} key={index}>
 							<div className={`bg-gray-950 ${index%2 === 0 ? 'mr-auto' : 'ml-auto' } w-80 text-center p-4 rounded-lg `} >
                             	<h3>{item.position}</h3>
                             	<p>{item.details}</p>
                         	</div>
-							<span className={` ${index%2 === 0 ? 'after:-right-3' : 'after:-left-2' } after:content-[''] after:h-5 after:w-5 after:rounded-full after:bg-white after:-top-2 after:absolute  absolute bg-white h-0.5 w-full top-1/2 -z-20`}></span>
+							<span className={` ${index%2 === 0 ? 'after:-right-3' : 'after:-left-2' } after:content-[''] after:h-5 after:w-5 after:rounded-full after:bg-white after:-top-2 after:absolute  absolute bg-white h-0.5 w-full top-1/2 -z-20 hidden md:block`}></span>
 						</div>
 
                     ))

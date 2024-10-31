@@ -1,10 +1,11 @@
 import React from 'react'
 import { IoMdSend } from "react-icons/io";
+import GradientText from '../GradientText';
 
 function ContactMe() {
 	return (
 		<section className='mt-20 m-auto px-4 max-w-7xl'>
-			<h2 className='text-4xl text-center'>Let's build something <strong className='text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-600'>great together.</strong> </h2>
+			<h2 className='text-3xl sm:text-4xl text-center'>Let's build something <strong><GradientText>great together.</GradientText></strong> </h2>
 			<form action="" method="post" className='max-w-lg m-auto mt-20'>
 				<div>
 					<label htmlFor="name" className='text-gray-300'>Name</label>
