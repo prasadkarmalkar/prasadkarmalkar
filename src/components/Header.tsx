@@ -17,7 +17,7 @@ function Header() {
 			<nav className={`md:block py-7 px-3 ${isOpen ? 'block absolute bottom-0 top-10 bg-black w-full -z-0 -mt-10 overflow-hidden' : 'hidden'}`}>
 				<ul className={`sm:static flex-col items-center flex justify-center sm:flex-row sm:gap-5 gap-8 h-full`}>
 					{
-						[{name:'HOME', url: '/'}, {name:'ABOUT ME', url:'/about'}, {name:'PROJECTS',url:'/projects'}, {name:'BLOGS', url:'/blogs'}, {name:'CONTACT ME', url:'/contact'}].map(menuname => 
+						[{name:'HOME', url: '/'}, {name:'ABOUT ME', url:'/about'}, {name:'PROJECTS',url:'/projects'}, {name:'BLOGS', url:'/blogs'}, {name:'CONTACT ME', url:'/#contactme'}].map(menuname => 
 						<li key={menuname.name} className={`${router === menuname.url ? 'after:scale-x-100' : ''} relative after:block after:content-[''] after:absolute after:bottom-0 after:h-0.5 after:scale-x-0 after:hover:scale-x-100 after:w-full after:bg-gradient-to-r after:from-pink-500 after:to-violet-600 after:transition after:origin-left`}>
 							<Link onClick={()=> setIsOpen(false)} href={menuname.url}>{menuname.name}</Link>
 						</li>)

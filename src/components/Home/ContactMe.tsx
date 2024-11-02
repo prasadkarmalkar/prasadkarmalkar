@@ -4,7 +4,7 @@ import GradientText from '../GradientText';
 
 function ContactMe() {
 	return (
-		<section className='mt-20 m-auto px-4 max-w-7xl'>
+		<section id='contactme' className='mt-20 m-auto px-4 max-w-7xl'>
 			<h2 className='text-3xl sm:text-4xl text-center'>Lets build something <strong><GradientText>great together.</GradientText></strong> </h2>
 			<form action="" method="post" className='max-w-lg m-auto mt-20'>
 				<div>
