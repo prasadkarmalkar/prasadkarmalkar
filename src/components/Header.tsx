@@ -10,8 +10,8 @@ function Header() {
 	return (
 		<header>
 			<div onClick={()=> setIsOpen(!isOpen)} className='md:hidden pt-5 ml-auto flex flex-col items-end group overflow-hidden z-20 relative mr-5'>
-				<span className={`block h-0.5 w-5 bg-white mb-1.5 ${isOpen && '-rotate-45 -mb-0.5'} transition-all`}></span>
-				<span className={`block h-0.5 w-5 bg-white mb-1.5 ${isOpen && 'rotate-45'} transition-all`}></span>
+				<span className={`block h-0.5 w-5 bg-white mb-1.5 ${isOpen && '-rotate-45 -mb-1'} transition-all`}></span>
+				<span className={`block h-0.5 w-5 bg-white mb-1.5 ${isOpen && 'rotate-45 mt-0.5'} transition-all`}></span>
 				<span className={`block h-0.5 w-5 bg-white ${isOpen && 'opacity-0'}`}></span>
 			</div>
 			<nav className={`md:block py-7 px-3 ${isOpen ? 'block absolute bottom-0 top-10 bg-black w-full -z-0 -mt-10 overflow-hidden' : 'hidden'}`}>

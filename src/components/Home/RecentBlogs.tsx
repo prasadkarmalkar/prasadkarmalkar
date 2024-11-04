@@ -7,7 +7,7 @@ function RecentBlogs() {
 	return (
 		<section className='my-20 m-auto'>
 			<h2 className='text-center text-3xl sm:text-4xl'>Recent <strong><GradientText>Writings</GradientText></strong></h2>
-			<div className='mt-20 flex 4xl:gap-20 md:gap-10 gap-5 justify-center flex-wrap'>
+			{/* <div className='mt-20 flex 4xl:gap-20 md:gap-10 gap-5 justify-center flex-wrap'>
 				{[1, 2, 3].map((project) => {
 					return (
 						<div key={project} className='relative'>
@@ -46,7 +46,8 @@ function RecentBlogs() {
 				<button className='border rounded-full px-4 py-2 hover:text-black hover:bg-white transition-all duration-300'>
 					Load More
 				</button>
-			</div>
+			</div> */}
+			<h3 className='text-3xl text-center mt-32 font-semibold py-10 pb-80'>Coming soon!</h3>
 		</section>
 	);
 }

@@ -77,3 +77,5 @@ export const JourneyData = [
         to: '2020',
     },
 ]
+
+export const gradientBorder = "after:content-[''] after:h-full after:w-full after:absolute after:bg-gradient-to-r after:top-0 after:p-2 after:scale-[1.01] after:-z-10 after:rounded-2xl after:from-pink-500 after:to-violet-600";
