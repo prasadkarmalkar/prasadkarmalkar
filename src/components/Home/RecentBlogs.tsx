@@ -1,6 +1,4 @@
-import Image from 'next/image';
 import React from 'react';
-import { FaChevronRight } from "react-icons/fa";
 import GradientText from '../GradientText';
 
 function RecentBlogs() {

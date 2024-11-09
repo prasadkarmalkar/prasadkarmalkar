@@ -24,7 +24,7 @@ function RecentProjects() {
 								</div>
 							</div>
 							<ul className="text-xs sm:text-sm recent-project-tech bg-black rounded-bl-3xl flex gap-2 absolute top-0 right-0 px-4 py-2 before:content-[''] before:h-5 before:w-5 before:bg-black before:absolute before:-left-5 before:top-0 after:content-[''] after:h-5 after:w-5 after:bg-black after:absolute after:-bottom-5 after:right-0">
-								{project.technologies.slice(0, 3).map((technology) => <li className='bg-white text-black rounded-lg px-2'>{technology}</li>)}
+								{project.technologies.slice(0, 3).map((technology) => <li key={technology} className='bg-white text-black rounded-lg px-2'>{technology}</li>)}
 							</ul>
 							<div className="recent-project-more-container bg-black absolute bottom-0 right-0 p-2.5 rounded-tl-3xl before:content-[''] before:h-5 before:w-5 before:bg-black before:absolute before:right-0 before:-top-5 after:content-[''] after:h-5 after:w-5 after:bg-black after:absolute after:bottom-0 after:-left-5">
 								<Link href={`/projects/#${project.name}`} className='block bg-white text-black p-1.5 sm:p-2.5 rounded-full' ><FaChevronRight /></Link>

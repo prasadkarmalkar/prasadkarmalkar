@@ -26,7 +26,7 @@ function AllProjects() {
 									{project.description}
 								</p>
 								<ul className="text-sm sm:text-base rounded-bl-3xl flex gap-2 mb-3">
-									{project.technologies.map((technology) => <li className='bg-white text-black rounded-lg px-2'>{technology}</li>)}
+									{project.technologies.map((technology) => <li key={technology} className='bg-white text-black rounded-lg px-2'>{technology}</li>)}
 								</ul>
 								<div className='flex text-lg gap-4'>
 									<a href={project.github} className='border p-2 rounded-full hover:text-black hover:bg-white transition-all duration-300'><FaGithub /></a>

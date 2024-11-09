@@ -1,6 +1,5 @@
 import GradientText from '@/components/GradientText'
 import React from 'react'
-import AllBlogs from '@/components/Blogs/AllBlogs'
 const page = () => {
   return (
 	<main className='min-h-screen mt-5'>
