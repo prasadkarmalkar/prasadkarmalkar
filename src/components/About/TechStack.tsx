@@ -3,7 +3,6 @@ import { FaChrome, FaCss3, FaFigma, FaGitAlt, FaHtml5, FaJs, FaNodeJs, FaWordpre
 import { SiExpress, SiMongodb, SiMysql, SiNextdotjs, SiPostman, SiReact, SiTailwindcss, SiTypescript } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import GradientText from '../GradientText';
-import { gradientBorder } from '@/data/data';
 function TechStack() {
 	return (
 		<section className='mt-20 max-w-screen-lg m-auto'>
