@@ -1,46 +1,85 @@
-import React from 'react'
+'use client'
+
+import React, { useState, useRef } from 'react'
 import { IoMdSend } from "react-icons/io";
-import GradientText from '../GradientText';
-import { Resend } from 'resend';
+import { IoCheckmarkCircle } from "react-icons/io5";
 
 function ContactMe() {
-	async function sendEmail(formData: FormData) {
-        'use server'
-        const name = formData.get('name')
-        const email = formData.get('email')
-        const message = formData.get('message')
-        const resend = new Resend(process.env.RESEND_API);
+	const [submitted, setSubmitted] = useState(false)
+	const [sending, setSending] = useState(false)
+	const formRef = useRef<HTMLFormElement>(null)
 
-        resend.emails.send({
-            from: 'onboarding@resend.dev',
-            to: 'prasadkarmalkar2020@gmail.com',
-            subject: `Got message from ${name}`,
-            html: `
-            Name: ${name} <br>
-            Email: ${email} <br>
-            Message:
-            <p>${message}</p>`
-        });
+	async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+		e.preventDefault()
+		setSending(true)
+		const formData = new FormData(e.currentTarget)
 
-    }
+		try {
+			await fetch('/api/contact', {
+				method: 'POST',
+				body: JSON.stringify({
+					name: formData.get('name'),
+					email: formData.get('email'),
+					message: formData.get('message'),
+				}),
+				headers: { 'Content-Type': 'application/json' },
+			})
+		} catch {
+			// still show thank you — email may have sent
+		}
+
+		setSending(false)
+		setSubmitted(true)
+		formRef.current?.reset()
+	}
+
 	return (
-		<section id='contactme' className='mt-20 m-auto px-4 max-w-7xl'>
-			<h2 className='text-3xl sm:text-4xl text-center'>Lets build something <strong><GradientText>great together.</GradientText></strong> </h2>
-			<form action={sendEmail} className='max-w-lg m-auto mt-20'>
-				<div>
-					<label htmlFor="name" className='text-gray-300'>Name</label>
-					<input className='block bg-gray-900 text-white px-4 py-2 rounded-lg w-full mt-2 mb-4' type="text" name="name" id="name" placeholder='Enter your good name.'/>
+		<section id='contact' className='py-24 sm:py-32 max-w-3xl mx-auto'>
+			<div className='mb-12'>
+				<p className='text-[11px] font-medium uppercase tracking-[0.2em] text-gray-600 mb-4'>Contact</p>
+				<h2 className='text-3xl sm:text-4xl font-bold tracking-tight mb-4'>
+					Let&apos;s work{' '}
+					<span className='text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-violet-400'>together</span>
+				</h2>
+				<p className='text-[15px] text-gray-500 max-w-md'>Have an idea, a project, or just want to say hi? I&apos;d love to hear from you.</p>
+			</div>
+
+			{submitted ? (
+				<div className='max-w-lg animate-fade-in-up'>
+					<div className='border border-white/[0.06] rounded-2xl p-8 text-center bg-white/[0.02]'>
+						<IoCheckmarkCircle className='text-green-400 text-4xl mx-auto mb-4' />
+						<h3 className='text-xl font-semibold text-white mb-2'>Thank you!</h3>
+						<p className='text-sm text-gray-400 mb-6'>Your message has been sent. I&apos;ll get back to you as soon as possible.</p>
+						<button
+							onClick={() => setSubmitted(false)}
+							className='text-sm text-gray-500 hover:text-white transition-colors underline underline-offset-4'
+						>
+							Send another message
+						</button>
+					</div>
 				</div>
-				<div>
-					<label htmlFor="email" className='text-gray-300'>Email</label>
-					<input className='block bg-gray-900 text-white px-4 py-2 rounded-lg w-full mt-2 mb-4' type="email" name="email" id="email" placeholder='Enter your email id.' />
-				</div>
-				<div>
-					<label htmlFor="message" className='text-gray-300'>Message</label>
-					<textarea className='block bg-gray-900 text-white px-4 py-2 rounded-lg w-full mt-2 mb-4' name="message" id="message" rows={5} placeholder='Enter your message.'/>
-				</div>
-				<button className='mt-8 text-center m-auto border px-14 rounded-full py-2 hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-2' type="submit">Send <IoMdSend /></button>
-			</form>
+			) : (
+				<form ref={formRef} onSubmit={handleSubmit} className='max-w-lg'>
+					<div className='grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3'>
+						<div>
+							<label htmlFor="name" className='text-[12px] text-gray-600 uppercase tracking-wider'>Name</label>
+							<input className='block bg-white/[0.02] border border-white/[0.06] text-white px-4 py-3 rounded-xl w-full mt-2 focus:outline-none focus:border-white/20 transition-colors text-sm placeholder:text-gray-700' type="text" name="name" id="name" placeholder='Your name' required />
+						</div>
+						<div>
+							<label htmlFor="email" className='text-[12px] text-gray-600 uppercase tracking-wider'>Email</label>
+							<input className='block bg-white/[0.02] border border-white/[0.06] text-white px-4 py-3 rounded-xl w-full mt-2 focus:outline-none focus:border-white/20 transition-colors text-sm placeholder:text-gray-700' type="email" name="email" id="email" placeholder='you@example.com' required />
+						</div>
+					</div>
+					<div>
+						<label htmlFor="message" className='text-[12px] text-gray-600 uppercase tracking-wider'>Message</label>
+						<textarea className='block bg-white/[0.02] border border-white/[0.06] text-white px-4 py-3 rounded-xl w-full mt-2 focus:outline-none focus:border-white/20 transition-colors text-sm placeholder:text-gray-700 resize-none' name="message" id="message" rows={5} placeholder='Tell me about your project...' required />
+					</div>
+					<button className='mt-5 group text-sm px-7 py-3 rounded-full bg-white text-black font-medium hover:bg-gray-100 transition-all duration-300 flex items-center gap-2 disabled:opacity-50' type="submit" disabled={sending}>
+						{sending ? 'Sending...' : 'Send message'}
+						<IoMdSend className='group-hover:translate-x-0.5 transition-transform' />
+					</button>
+				</form>
+			)}
 		</section>
 	)
 }

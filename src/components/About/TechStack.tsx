@@ -1,99 +1,91 @@
 import React from 'react';
-import { FaChrome, FaCss3, FaFigma, FaGitAlt, FaHtml5, FaJs, FaNodeJs, FaWordpress } from "react-icons/fa6";
-import { SiExpress, SiMongodb, SiMysql, SiNextdotjs, SiPostman, SiReact, SiTailwindcss, SiTypescript } from "react-icons/si";
+import { FaCss3, FaDocker, FaFigma, FaGitAlt, FaHtml5, FaJs, FaNodeJs, FaPhp, FaWordpress } from "react-icons/fa6";
+import { SiExpress, SiGraphql, SiMongodb, SiMysql, SiNextdotjs, SiPostman, SiReact, SiRedis, SiTailwindcss, SiTypescript } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
-import GradientText from '../GradientText';
+
+const categories = [
+	{
+		title: 'Frontend',
+		icons: [
+			{ icon: FaHtml5, name: 'HTML5' },
+			{ icon: FaCss3, name: 'CSS3' },
+			{ icon: FaJs, name: 'JavaScript' },
+			{ icon: SiTypescript, name: 'TypeScript' },
+			{ icon: SiReact, name: 'React' },
+			{ icon: SiNextdotjs, name: 'Next.js' },
+			{ icon: SiTailwindcss, name: 'Tailwind' },
+		],
+		span: 'sm:col-span-2',
+	},
+	{
+		title: 'Backend',
+		icons: [
+			{ icon: FaNodeJs, name: 'Node.js' },
+			{ icon: SiExpress, name: 'Express' },
+			{ icon: FaPhp, name: 'PHP' },
+		],
+		span: 'sm:col-span-1',
+	},
+	{
+		title: 'Data',
+		icons: [
+			{ icon: SiMysql, name: 'MySQL' },
+			{ icon: SiMongodb, name: 'MongoDB' },
+			{ icon: SiRedis, name: 'Redis' },
+		],
+		span: 'sm:col-span-1',
+	},
+	{
+		title: 'Tools',
+		icons: [
+			{ icon: FaGitAlt, name: 'Git' },
+			{ icon: FaDocker, name: 'Docker' },
+			{ icon: VscVscode, name: 'VS Code' },
+			{ icon: SiPostman, name: 'Postman' },
+			{ icon: FaFigma, name: 'Figma' },
+		],
+		span: 'sm:col-span-1',
+	},
+	{
+		title: 'CMS & APIs',
+		icons: [
+			{ icon: FaWordpress, name: 'WordPress' },
+			{ icon: SiGraphql, name: 'GraphQL' },
+		],
+		span: 'sm:col-span-1',
+	},
+];
+
 function TechStack() {
 	return (
-		<section className='mt-20 max-w-screen-lg m-auto'>
-			<h2 className='text-center text-3xl sm:text-4xl '>Tech Stack & <strong><GradientText>Mastery</GradientText></strong></h2>
-			<div className='mt-20 grid grid-cols-1 grid-rows-7 sm:grid-cols-8 sm:grid-rows-6 gap-10 justify-center'>
-				<div className={`after:content-[''] after:h-full after:w-full after:absolute after:bg-gradient-to-r after:top-0 after:p-2 after:scale-[1.01] after:-z-10 after:rounded-2xl after:from-pink-500 after:to-violet-600 relative row-span-2 sm:row-span-2 sm:col-span-8 lg:col-span-5 lg:row-span-4  bg-gradient-to-r from-gray-950 to-gray-900 rounded-2xl`}>
-					<h3 className='text-2xl sm:text-3xl my-6 text-center font-semibold '>
-						FrontEnd
-					</h3>
-					<ul className='text-5xl flex gap-24 justify-evenly flex-wrap p-10'>
-						<li>
-							<FaHtml5 />
-						</li>
-						<li>
-							<FaCss3 />
-						</li>
-						<li>
-							<FaJs />
-						</li>
-						<li>
-							<SiTypescript />
-						</li>
-						<li>
-							<SiNextdotjs />
-						</li>
-						<li>
-							<SiReact />
-						</li>
-						<li>
-							<SiTailwindcss />
-						</li>
-					</ul>
-				</div>
-				<div className={`after:content-[''] after:h-full after:w-full after:absolute after:bg-gradient-to-r after:top-0 after:p-2 after:scale-[1.01] after:-z-10 after:rounded-2xl after:from-pink-500 after:to-violet-600 relative row-span-1 sm:col-span-4 sm:row-span-1 lg:col-span-3 lg:row-span-2 bg-gradient-to-r from-gray-950 to-gray-900  rounded-2xl`}>
-					<h3 className='text-2xl sm:text-3xl my-6 text-center font-semibold '>
-						BackEnd
-					</h3>
-					<ul className='text-5xl flex gap-24 justify-evenly flex-wrap p-10'>
-						<li className=''>
-							<FaNodeJs />
-						</li>
-						<li>
-							<SiExpress />
-						</li>
-					</ul>
-				</div>
-				<div className={`after:content-[''] after:h-full after:w-full after:absolute after:bg-gradient-to-r after:top-0 after:p-2 after:scale-[1.01] after:-z-10 after:rounded-2xl after:from-pink-500 after:to-violet-600 relative row-span-1 sm:col-span-4 sm:row-span-1 lg:col-span-3 lg:row-span-2 bg-gradient-to-r from-gray-950 to-gray-900  rounded-2xl`}>
-					<h3 className='text-2xl sm:text-3xl my-6 text-center font-semibold '>
-						Databases
-					</h3>
-					<ul className='text-5xl flex gap-24 justify-evenly flex-wrap p-10'>
-						<li>
-							<SiMysql />
-						</li>
-						<li>
-							<SiMongodb />
-						</li>
-					</ul>
-				</div>
-				<div className={`after:content-[''] after:h-full after:w-full after:absolute after:bg-gradient-to-r after:top-0 after:p-2 after:scale-[1.01] after:-z-10 after:rounded-2xl after:from-pink-500 after:to-violet-600 relative row-span-2 sm:col-span-8 sm:row-span-2 lg:col-span-6 lg:row-span-2 bg-gradient-to-r from-gray-950 to-gray-900  rounded-2xl`}>
-					<h3 className='text-2xl sm:text-3xl my-6 text-center font-semibold '>
-						Tools
-					</h3>
-					<ul className='text-5xl flex gap-24 justify-evenly flex-wrap p-10'>
-						<li>
-							<FaGitAlt />
-						</li>
-						<li>
-							<VscVscode />
-						</li>
-						<li>
-							<SiPostman />
-						</li>
-						<li>
-							<FaFigma />
-						</li>
-						<li>
-							<FaChrome />
-						</li>
-					</ul>
-				</div>
-				<div className={`after:content-[''] after:h-full after:w-full after:absolute after:bg-gradient-to-r after:top-0 after:p-2 after:scale-[1.01] after:-z-10 after:rounded-2xl after:from-pink-500 after:to-violet-600 relative row-span-1 sm:col-start-3 sm:row-span-1 sm:col-end-7 lg:col-span-2 lg:row-span-2 bg-gradient-to-r from-gray-950 to-gray-900  rounded-2xl`}>
-					<h3 className='text-2xl sm:text-3xl my-6 text-center font-semibold'>
-						CMS
-					</h3>
-					<ul className='text-5xl flex gap-24 justify-evenly flex-wrap p-10'>
-						<li>
-							<FaWordpress />
-						</li>
-					</ul>
-				</div>
+		<section className='py-24 sm:py-32 max-w-5xl mx-auto'>
+			<div className='mb-16'>
+				<p className='text-[11px] font-medium uppercase tracking-[0.2em] text-gray-600 mb-4'>Skills</p>
+				<h2 className='text-3xl sm:text-4xl font-bold tracking-tight'>
+					Technologies I{' '}
+					<span className='text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-violet-400'>work with</span>
+				</h2>
+			</div>
+			<div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+				{categories.map((cat) => (
+					<div key={cat.title} className={`${cat.span} gradient-border rounded-2xl p-6`}>
+						<h3 className='text-[11px] font-medium uppercase tracking-[0.2em] text-gray-600 mb-5'>
+							{cat.title}
+						</h3>
+						<div className='flex flex-wrap gap-4'>
+							{cat.icons.map(({ icon: Icon, name }) => (
+								<div
+									key={name}
+									className='group flex items-center gap-2 px-3 py-2 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:border-white/10 hover:bg-white/[0.04] transition-all duration-300'
+									title={name}
+								>
+									<Icon className='text-xl text-gray-500 group-hover:text-white transition-colors duration-300' />
+									<span className='text-[13px] text-gray-500 group-hover:text-gray-300 transition-colors duration-300'>{name}</span>
+								</div>
+							))}
+						</div>
+					</div>
+				))}
 			</div>
 		</section>
 	);

@@ -1,29 +1,39 @@
 import React from 'react';
-import GradientText from '../GradientText';
 import { JourneyData } from '@/data/data';
-import { FaCalendarAlt, FaRegDotCircle} from "react-icons/fa";
 
 function Experience() {
 
 	return (
-		<section className='mt-20 m-auto'>
-			<h2 className='text-center text-4xl'>My <strong><GradientText>Journey</GradientText></strong></h2>
-			<div className='mt-20 max-w-4xl m-auto flex flex-col'>
-				{
-					JourneyData.map((item, index) => (
-						<div className={`${index%2 === 0 ? 'md:mr-auto md:m-0 md:after:-right-1.5 md:after:m-0 md:after:left-auto' : 'md:ml-auto md:m-0 md:after:m-0 md:after:right-auto' } after:right-0 after:left-0 after:m-auto after:-z-10 m-auto py-10  md:w-1/2 relative after:absolute after:content-[''] after:top-0 after:h-full after:w-1.5 after:bg-white`} key={index}>
-							<div className={`bg-gray-900 ${index%2 === 0 ? 'mr-auto' : 'ml-auto' } max-w-96 p-4 rounded-lg `} >
-                            	<h3 className='text-lg font-semibold '>{item.position}</h3>
-								<div className='mt-1 flex justify-start bg-gray-800 text-sm rounded-lg px-2 py-1'>
-									<div className='flex basis-1/2 items-center gap-1'><FaRegDotCircle className='text-xs' />{item.company}</div>
-									<div className='flex basic-1/2 items-center gap-1'><FaCalendarAlt /> {item.from} - {item.to}</div>
-								</div>
-                            	<p className='mt-3 text-xs text-justify'>{item.details}</p>
-                        	</div>
-							<span className={` ${index%2 === 0 ? 'after:-right-3' : 'after:-left-2' } after:content-[''] after:h-5 after:w-5 after:rounded-full after:bg-white after:-top-2 after:absolute  absolute bg-white h-0.5 w-full top-1/2 -z-20 hidden md:block`}></span>
+		<section id='experience' className='py-24 sm:py-32 max-w-4xl mx-auto'>
+			<div className='mb-16'>
+				<p className='text-[11px] font-medium uppercase tracking-[0.2em] text-gray-600 mb-4'>Career</p>
+				<h2 className='text-3xl sm:text-4xl font-bold tracking-tight'>
+					My{' '}
+					<span className='text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-violet-400'>journey</span>
+				</h2>
+			</div>
+			<div className='space-y-0'>
+				{JourneyData.map((item, index) => (
+					<div key={index} className='group relative pl-8 pb-12 last:pb-0'>
+						{/* Timeline line */}
+						{index < JourneyData.length - 1 && (
+							<div className='absolute left-[7px] top-3 bottom-0 w-px bg-gradient-to-b from-white/10 to-transparent' />
+						)}
+						{/* Timeline dot */}
+						<div className='absolute left-0 top-2 w-[15px] h-[15px] rounded-full border-2 border-white/10 bg-[#0a0a0b] group-hover:border-violet-400/50 transition-colors duration-300'>
+							<div className='absolute inset-[3px] rounded-full bg-gradient-to-r from-pink-400 to-violet-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
 						</div>
-                    ))
-				}
+						{/* Content */}
+						<div className='gradient-border rounded-xl p-5 ml-4 group-hover:border-white/10'>
+							<div className='flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2'>
+								<h3 className='text-base font-semibold text-white'>{item.position}</h3>
+								<span className='text-[12px] text-gray-600 font-mono'>{item.from} — {item.to}</span>
+							</div>
+							<p className='text-[13px] text-violet-400/80 font-medium mb-3'>{item.company}</p>
+							<p className='text-sm text-gray-500 leading-relaxed'>{item.details}</p>
+						</div>
+					</div>
+				))}
 			</div>
 		</section>
 	);

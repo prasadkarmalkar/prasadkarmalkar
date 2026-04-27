@@ -1,36 +1,43 @@
 import Image from 'next/image';
 import React from 'react';
 import { FaGithub, FaLink } from "react-icons/fa";
-import GradientText from '../GradientText';
 import { projects } from '@/data/data';
+
 function AllProjects() {
 	return (
-		<section className='my-20 m-auto max-w-screen-md'>
-			<h2 className='text-center text-3xl sm:text-4xl'>My <strong><GradientText>Creations</GradientText></strong></h2>
-			<div className='mt-20'>
+		<section className='py-16 sm:py-24 max-w-3xl mx-auto'>
+			<div className='space-y-6'>
 				{projects.map((project) => {
 					return (
-						<div id={project.name} key={project.name} className=' flex flex-wrap md:flex-nowrap items-center gap-5 bg-gray-900 p-5 rounded-xl my-10'>
-							<div className="w-full max-w-52">
+						<div id={project.name} key={project.name} className='group gradient-border rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-start gap-6'>
+							<div className="w-full sm:w-48 shrink-0 overflow-hidden rounded-xl">
 								<Image
 									src={project.image}
 									width={210}
 									height={180}
-									alt='Project Image'
-									className='m-auto rounded-xl'
+									alt={`${project.name} screenshot`}
+									className='w-full rounded-xl group-hover:scale-[1.02] transition-transform duration-500'
 								/>
 							</div>
 							<div className='flex-grow'>
-								<h3 className='text-xl sm:text-2xl font-semibold mb-2'>{project.name}</h3>
-								<p className='mb-3'>
+								<h3 className='text-lg font-semibold mb-1.5'>{project.name}</h3>
+								<p className='text-sm text-gray-500 leading-relaxed mb-3'>
 									{project.description}
 								</p>
-								<ul className="text-sm sm:text-base rounded-bl-3xl flex gap-2 mb-3">
-									{project.technologies.map((technology) => <li key={technology} className='bg-white text-black rounded-lg px-2'>{technology}</li>)}
-								</ul>
-								<div className='flex text-lg gap-4'>
-									<a href={project.github} className='border p-2 rounded-full hover:text-black hover:bg-white transition-all duration-300'><FaGithub /></a>
-									{project.link && <a href={project.link} className='border p-2 rounded-full hover:text-black hover:bg-white transition-all duration-300'><FaLink /></a>}
+								<div className='flex flex-wrap gap-1.5 mb-4'>
+									{project.technologies.map((technology) => (
+										<span key={technology} className='text-[11px] px-2 py-0.5 rounded-full bg-white/[0.04] text-gray-500 border border-white/[0.04]'>{technology}</span>
+									))}
+								</div>
+								<div className='flex gap-2'>
+									<a href={project.github} target='_blank' rel='noopener noreferrer' className='flex items-center gap-1.5 text-[12px] text-gray-600 hover:text-white border border-white/[0.06] hover:border-white/20 rounded-full px-3 py-1.5 transition-all duration-300'>
+										<FaGithub className='text-xs' /> Code
+									</a>
+									{project.link && (
+										<a href={project.link} target='_blank' rel='noopener noreferrer' className='flex items-center gap-1.5 text-[12px] text-gray-600 hover:text-white border border-white/[0.06] hover:border-white/20 rounded-full px-3 py-1.5 transition-all duration-300'>
+											<FaLink className='text-xs' /> Live
+										</a>
+									)}
 								</div>
 							</div>
 						</div>
