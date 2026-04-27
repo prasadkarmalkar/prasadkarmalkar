@@ -9,6 +9,13 @@ interface Project {
 
 export const projects: Project[] = [
     {
+        name: 'SQL Schema Flow',
+        description: 'A visual SQL schema designer that lets you create database tables, define columns with full type support, establish foreign key relationships, and generate SQL — all from an interactive drag-and-drop canvas. Features infinite canvas with snap-to-grid, SQL CREATE TABLE generation, and save/load projects as JSON.',
+        technologies: ['React', 'TypeScript', 'Zustand', 'React Flow', 'Tailwind CSS', 'Radix UI'],
+        image: '/assets/SchemaFlow.png',
+        github: 'https://github.com/prasadkarmalkar/sql-schema-flow',
+    },
+    {
         name: 'Guptachar',
         description: 'A production-grade encrypted secret-sharing platform built with Next.js. Features zero-knowledge encryption architecture with no keys stored server-side, auto-expiring links, and a polished UX designed for secure one-time message sharing.',
         technologies: ['Next.js', 'TypeScript', 'MongoDB', 'Crypto API'],
